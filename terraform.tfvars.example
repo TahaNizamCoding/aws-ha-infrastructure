@@ -1,0 +1,19 @@
+# Copy this file to terraform.tfvars and adjust as needed.
+# terraform.tfvars is gitignored by default in most setups — never commit
+# real values if you add secrets here later (this project has none today).
+
+aws_region   = "us-east-1"
+project_name = "ha-infra"
+environment  = "dev"
+
+# Leave key_pair_name = null to skip SSH key injection entirely and use
+# AWS Systems Manager Session Manager for shell access instead (no open
+# port 22 needed anywhere).
+key_pair_name = null
+
+min_size         = 2
+max_size         = 6
+desired_capacity = 2
+
+scale_out_cpu_threshold = 70
+scale_in_cpu_threshold  = 40
